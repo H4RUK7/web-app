@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grocery Haven Admin Dashboard">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Grocery Haven - Admin Dashboard</title>
+    <style>
+        .admin-container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: #f9f9f9;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .admin-header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #131921;
+        }
+
+        .controls {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 0.5rem;
+            max-width: 300px;
+        }
+
+        .search-bar input {
+            border: none;
+            padding: 0.5rem;
+            font-size: 0.9rem;
+            flex: 1;
+            outline: none;
+        }
+
+        .search-bar button {
+            background: none;
+            border: none;
+            color: #131921;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .filter-btn, .export-btn {
+            background: #febd69;
+            color: #131921;
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .filter-btn:hover, .export-btn:hover,
+        .filter-btn:focus, .export-btn:focus {
+            background: #f3a847;
+        }
+
+        .dashboard-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .stat-card h3 {
+            font-size: 1.2rem;
+            color: #555;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-card p {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #131921;
+        }
+
+        .visitor-table {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+
+        th {
+            background: #131921;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        th:hover {
+            background: #232f3e;
+        }
+
+        td {
+            font-size: 0.9rem;
+            color: #333;
+        }
+
+        tr:hover {
+            background: #f4f4f4;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 2rem;
+            color: #555;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 1rem;
+            color: #febd69;
+        }
+
+        .connection-status {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            z-index: 1000;
+        }
+
+        .connected {
+            background: #2ecc71;
+            color: #fff;
+        }
+
+        .disconnected {
+            background: #e74c3c;
+            color: #fff;
+        }
+
+        @media (max-width: 768px) {
+            .admin-header {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .controls {
+                justify-content: center;
+            }
+
+            .search-bar {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav aria-label="Admin navigation">
+            <div id="logo">
+                <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grocery Haven Logo">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8 32H0V21.9849C0 17.1239 4.0116 13.1839 8.96 13.1839H15.2V0.468341C15.2 0.251458 15.3792 0.0754376 15.6 0.0754376C15.7184 0.0754376 15.8308 0.127301 15.9068 0.216883L17.3616 1.92719C18.402 1.07577 19.74 0.563816 21.2 0.563816H22C23.442 0.563816 24.7656 1.06359 25.8 1.89654L27.2932 0.14066C27.3692 0.0514706 27.4812 0 27.6 0C27.8208 0 28 0.175628 28 0.392904V15.3896H23.36C17.528 15.3896 12.8 20.0337 12.8 25.7623V32Z" fill="#febd69" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.76 17.0569V12.0875C29.76 12.0836 29.76 12.0797 29.76 12.0758V6.79004C29.76 6.57435 29.9392 6.4 30.16 6.4C30.266 6.4 30.3676 6.44095 30.4424 6.51389L31.9576 7.98784C32.7864 7.42501 33.7936 7.09504 34.88 7.09504C35.97 7.09504 36.9808 7.42735 37.8112 7.99369L39.3176 6.52793C39.3924 6.45499 39.494 6.41404 39.6 6.41404C39.8208 6.41404 40 6.58878 40 6.80408V23.2632C40 28.0883 35.9884 32 31.04 32H14.4V25.7938C14.4 20.969 18.4116 17.0569 23.36 17.0569H29.76Z" fill="#febd69" />
+                </svg>
+                <span>Grocery Haven Admin</span>
+            </div>
+            <a href="/" class="btn-outline-dark">Back to Site</a>
+        </nav>
+    </header>
+    <main>
+        <section class="admin-container" aria-labelledby="dashboard-title">
+            <div class="connection-status connected" id="connection-status">Connected</div>
+            <div class="admin-header">
+                <h1 id="dashboard-title">Visitor Dashboard</h1>
+                <div class="controls">
+                    <div class="search-bar">
+                        <input type="text" id="search-visitors" placeholder="Search by IP or Page..." aria-label="Search visitor logs">
+                        <button aria-label="Search"><i class="ri-search-line"></i></button>
+                    </div>
+                    <button class="filter-btn" aria-label="Toggle filters"><i class="ri-filter-3-line"></i> Filters</button>
+                    <button class="export-btn" aria-label="Export to CSV"><i class="ri-download-line"></i> Export CSV</button>
+                </div>
+            </div>
+            <div class="dashboard-stats">
+                <div class="stat-card">
+                    <h3>Total Visitors</h3>
+                    <p id="total-visitors">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Today’s Visitors</h3>
+                    <p id="today-visitors">0</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Unique IPs</h3>
+                    <p id="unique-ips">0</p>
+                </div>
+            </div>
+            <div class="visitor-table">
+                <table aria-describedby="dashboard-title">
+                    <thead>
+                        <tr>
+                            <th scope="col" data-sort="id">ID <i class="ri-arrow-down-s-line"></i></th>
+                            <th scope="col" data-sort="ip_address">IP Address <i class="ri-arrow-down-s-line"></i></th>
+                            <th scope="col" data-sort="timestamp">Timestamp <i class="ri-arrow-down-s-line"></i></th>
+                            <th scope="col" data-sort="page">Page <i class="ri-arrow-down-s-line"></i></th>
+                        </tr>
+                    </thead>
+                    <tbody id="visitor-table-body">
+                        {% for visitor in visitors %}
+                        <tr>
+                            <td>{{ visitor.id }}</td>
+                            <td>{{ visitor.ip_address }}</td>
+                            <td>{{ visitor.timestamp }}</td>
+                            <td>{{ visitor.page }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <div id="no-results" class="no-results hidden">No visitors found.</div>
+                <div id="loading" class="loading hidden">Loading...</div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.5/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+
+        // Connection status
+        socket.on('connect', () => {
+            document.getElementById('connection-status').textContent = 'Connected';
+            document.getElementById('connection-status').classList.add('connected');
+            document.getElementById('connection-status').classList.remove('disconnected');
+        });
+
+        socket.on('disconnect', () => {
+            document.getElementById('connection-status').textContent = 'Disconnected';
+            document.getElementById('connection-status').classList.add('disconnected');
+            document.getElementById('connection-status').classList.remove('connected');
+        });
+
+        // Update stats
+        function updateStats() {
+            const rows = document.querySelectorAll('#visitor-table-body tr');
+            const totalVisitors = rows.length;
+            const today = new Date().toISOString().split('T')[0];
+            const todayVisitors = Array.from(rows).filter(row =>
+                row.cells[2].textContent.includes(today)
+            ).length;
+            const uniqueIPs = new Set(Array.from(rows).map(row => row.cells[1].textContent)).size;
+
+            document.getElementById('total-visitors').textContent = totalVisitors;
+            document.getElementById('today-visitors').textContent = todayVisitors;
+            document.getElementById('unique-ips').textContent = uniqueIPs;
+        }
+
+        // Handle new visitor
+        socket.on('new_visitor', visitor => {
+            const tbody = document.getElementById('visitor-table-body');
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td>${visitor.id}</td>
+                <td>${visitor.ip_address}</td>
+                <td>${visitor.timestamp}</td>
+                <td>${visitor.page}</td>
+            `;
+            tbody.insertBefore(tr, tbody.firstChild); // Add to top
+            updateStats();
+            document.getElementById('loading').classList.add('hidden');
+
+            // Highlight new row
+            tr.style.background = '#febd69';
+            setTimeout(() => {
+                tr.style.background = '';
+                tr.style.transition = 'background 0.5s';
+            }, 1000);
+        });
+
+        // Initial stats
+        updateStats();
+
+        // Search
+        document.getElementById('search-visitors').addEventListener('input', e => {
+            const query = e.target.value.toLowerCase();
+            const rows = document.querySelectorAll('#visitor-table-body tr');
+            let hasResults = false;
+
+            rows.forEach(row => {
+                const ip = row.cells[1].textContent.toLowerCase();
+                const page = row.cells[3].textContent.toLowerCase();
+                const matches = ip.includes(query) || page.includes(query);
+                row.style.display = matches ? '' : 'none';
+                if (matches) hasResults = true;
+            });
+
+            document.getElementById('no-results').classList.toggle('hidden', hasResults);
+        });
+
+        // Sort
+        document.querySelectorAll('th[data-sort]').forEach(th => {
+            th.addEventListener('click', () => {
+                const key = th.dataset.sort;
+                const rows = Array.from(document.querySelectorAll('#visitor-table-body tr'));
+                const isAsc = !th.classList.contains('asc');
+                th.classList.toggle('asc', isAsc);
+                th.classList.toggle('desc', !isAsc);
+
+                rows.sort((a, b) => {
+                    let valA = a.cells[['id', 'ip_address', 'timestamp', 'page'].indexOf(key)].textContent;
+                    let valB = b.cells[['id', 'ip_address', 'timestamp', 'page'].indexOf(key)].textContent;
+
+                    if (key === 'id') {
+                        valA = parseInt(valA);
+                        valB = parseInt(valB);
+                    } else if (key === 'timestamp') {
+                        valA = new Date(valA);
+                        valB = new Date(valB);
+                    }
+
+                    return isAsc ? (valA > valB ? 1 : -1) : (valA < valB ? 1 : -1);
+                });
+
+                const tbody = document.getElementById('visitor-table-body');
+                tbody.innerHTML = '';
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+
+        // Export CSV
+        document.querySelector('.export-btn').addEventListener('click', () => {
+            const rows = document.querySelectorAll('#visitor-table-body tr');
+            let csv = 'ID,IP Address,Timestamp,Page\n';
+            rows.forEach(row => {
+                const cells = Array.from(row.cells).map(cell => `"${cell.textContent.replace(/"/g, '""')}"`);
+                csv += cells.join(',') + '\n';
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'grocery_haven_visitors.csv';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+</html>

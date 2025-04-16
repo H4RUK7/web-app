@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Grocery Haven - Your one-stop shop for fresh groceries with delivery and pickup options.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Grocery Haven - Fresh Groceries Delivered</title>
+</head>
+<body>
+    <header>
+        <div class="banner" role="alert">Get free delivery on orders over $50</div>
+        <nav aria-label="Main navigation">
+            <div id="logo">
+                <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grocery Haven Logo">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8 32H0V21.9849C0 17.1239 4.0116 13.1839 8.96 13.1839H15.2V0.468341C15.2 0.251458 15.3792 0.0754376 15.6 0.0754376C15.7184 0.0754376 15.8308 0.127301 15.9068 0.216883L17.3616 1.92719C18.402 1.07577 19.74 0.563816 21.2 0.563816H22C23.442 0.563816 24.7656 1.06359 25.8 1.89654L27.2932 0.14066C27.3692 0.0514706 27.4812 0 27.6 0C27.8208 0 28 0.175628 28 0.392904V15.3896H23.36C17.528 15.3896 12.8 20.0337 12.8 25.7623V32Z" fill="#45413E" />
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M29.76 17.0569V12.0875C29.76 12.0836 29.76 12.0797 29.76 12.0758V6.79004C29.76 6.57435 29.9392 6.4 30.16 6.4C30.266 6.4 30.3676 6.44095 30.4424 6.51389L31.9576 7.98784C32.7864 7.42501 33.7936 7.09504 34.88 7.09504C35.97 7.09504 36.9808 7.42735 37.8112 7.99369L39.3176 6.52793C39.3924 6.45499 39.494 6.41404 39.6 6.41404C39.8208 6.41404 40 6.58878 40 6.80408V23.2632C40 28.0883 35.9884 32 31.04 32H14.4V25.7938C14.4 20.969 18.4116 17.0569 23.36 17.0569H29.76Z" fill="#45413E" />
+                </svg>
+                <span>Grocery Haven</span>
+            </div>
+            <ul class="navigation-menu">
+                <li><a href="#" aria-haspopup="true">Products</a>
+                    <ul class="subnav">
+                        <li class="card-med" id="cat-fruits">
+                            <div class="card-image">
+                                <img src="splash1.jpg" alt="Fruits" class="lazy">
+                            </div>
+                            <a href="#" data-category="Fruits">
+                                <span>Fruits</span>
+                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </li>
+                        <li class="card-med" id="cat-vegetables">
+                            <div class="card-image">
+                                <img src="img2.webp" alt="Vegetables" class="lazy">
+                            </div>
+                            <a href="#" data-category="Vegetables">
+                                <span>Vegetables</span>
+                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </li>
+                        <li class="card-med" id="cat-dairy">
+                            <div class="card-image">
+                                <img src="img5.webp" alt="Dairy" class="lazy">
+                            </div>
+                            <a href="#" data-category="Dairy">
+                                <span>Dairy</span>
+                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </li>
+                        <li class="card-med" id="cat-pantry">
+                            <div class="card-image">
+                                <img src="img3.jpg" alt="Pantry" class="lazy">
+                            </div>
+                            <a href="#" data-category="Pantry">
+                                <span>Pantry</span>
+                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#" aria-haspopup="true">Services</a>
+                    <ul class="subnav">
+                        <li class="card-med" id="serv-delivery">
+                            <div class="card-image">
+                                <img src="img1.avif" alt="Delivery" class="lazy">
+                            </div>
+                            <a href="#">
+                                <span>Delivery</span>
+                                <span>More Info <i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </li>
+                        <li class="card-med" id="serv-pickup">
+                            <div class="card-image">
+                                <img src="splash2.jpg" alt="Curbside Pickup" class="lazy">
+                            </div>
+                            <a href="#">
+                                <span>Curbside Pickup</span>
+                                <span>More Info <i class="ri-arrow-right-line"></i></span>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="#locate">Locations & Hours</a></li>
+                <li><a href="#about">About Us</a></li>
+            </ul>
+            <div id="utility" aria-label="Utility navigation">
+                <button class="icon-btn" aria-label="Search" data-action="toggle-search">
+                    <i class="ri-search-line"></i>
+                </button>
+                <button class="icon-btn cart-icon" aria-label="Cart" data-action="open-cart">
+                    <i class="ri-shopping-cart-line"></i>
+                    <span id="cart-count" aria-live="polite">0</span>
+                </button>
+            </div>
+        </nav>
+        <div id="search-bar" class="hidden">
+            <form id="search-form" role="search">
+                <input type="text" id="search-input" placeholder="Search products..." aria-label="Search products">
+                <button type="submit" aria-label="Submit search"><i class="ri-search-line"></i></button>
+            </form>
+        </div>
+    </header>
+    <main>
+        <section class="hero" aria-labelledby="hero-title">
+            <h1 id="hero-title">Your One-Stop Shop for <span>Fresh Groceries!</span></h1>
+            <div class="hero-image">
+                <img src="splash6.jpg" alt="Fresh Groceries" class="lazy">
+            </div>
+            <div class="btn-group">
+                <button class="btn-filled-dark" data-filter="all">
+                    <i class="ri-shopping-cart-line"></i> Shop All Products
+                </button>
+                <button class="btn-outline-dark">
+                    <i class="ri-calendar-line"></i> Schedule Delivery
+                </button>
+            </div>
+        </section>
+        <section id="products" aria-labelledby="products-title">
+            <h2 id="products-title">Shop Our Products</h2>
+            <div class="filter-bar">
+                <button class="btn-outline-dark active" data-filter="all">All</button>
+                <button class="btn-outline-dark" data-filter="Fruits">Fruits</button>
+                <button class="btn-outline-dark" data-filter="Vegetables">Vegetables</button>
+                <button class="btn-outline-dark" data-filter="Dairy">Dairy</button>
+                <button class="btn-outline-dark" data-filter="Pantry">Pantry</button>
+            </div>
+            <ul class="product-list" aria-live="polite"></ul>
+        </section>
+        <section id="recommendations" aria-labelledby="recommendations-title">
+            <h2 id="recommendations-title">Recommended for You</h2>
+            <ul class="product-list" aria-live="polite"></ul>
+        </section>
+        <section id="recently-viewed" aria-labelledby="recently-viewed-title">
+            <h2 id="recently-viewed-title">Recently Viewed</h2>
+            <ul class="product-list" aria-live="polite"></ul>
+        </section>
+        <section id="services" aria-labelledby="services-title">
+            <h2 id="services-title">Our Services</h2>
+            <ul class="services">
+                <li class="card-large card-dark card-wide">
+                    <div class="card-image">
+                        <img src="img1.avif" alt="Home Delivery" class="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Home Delivery</h3>
+                        <span class="subtitle">Fresh groceries delivered to your door.</span>
+                        <ul>
+                            <li><a href="#">Same-Day Delivery</a><span>$9.99</span></li>
+                            <li><a href="#">Scheduled Delivery</a><span>$4.99</span></li>
+                        </ul>
+                        <button class="btn-filled-dark">
+                            <i class="ri-calendar-line"></i> Book Now
+                        </button>
+                    </div>
+                </li>
+                <li class="card-large card-dark card-wide">
+                    <div class="card-image">
+                        <img src="img1.avif" alt="Curbside Pickup" class="lazy">
+                    </div>
+                    <div class="card-content">
+                        <h3>Curbside Pickup</h3>
+                        <span class="subtitle">Quick and convenient grocery pickup.</span>
+                        <ul>
+                            <li><a href="#">Standard Pickup</a><span>Free</span></li>
+                            <li><a href="#">Express Pickup</a><span>$5.99</span></li>
+                        </ul>
+                        <button class="btn-filled-dark">
+                            <i class="ri-calendar-line"></i> Book Now
+                        </button>
+                    </div>
+                </li>
+            </ul>
+        </section>
+        <section id="locate" aria-labelledby="locate-title">
+            <h2 id="locate-title">Location & Hours</h2>
+            <p>Our friendly staff is ready to help you find the freshest groceries for your needs.</p>
+            <div class="btn-group">
+                <button class="btn-filled-dark">
+                    <i class="ri-map-pin-line"></i> Find a Store
+                </button>
+                <button class="btn-outline-dark">
+                    <i class="ri-customer-service-line"></i> Contact Us
+                </button>
+            </div>
+        </section>
+    </main>
+    <footer aria-label="Footer navigation">
+        <div class="footer-content">
+            <ul>
+                <li class="footer-title">Products</li>
+                <li><a href="#">Fruits</a></li>
+                <li><a href="#">Vegetables</a></li>
+                <li><a href="#">Dairy</a></li>
+                <li><a href="#">Pantry</a></li>
+                <li><a href="#">Bakery</a></li>
+            </ul>
+            <ul>
+                <li class="footer-title">Shop by Category</li>
+                <li><a href="#">Fresh Produce</a></li>
+                <li><a href="#">Dairy & Eggs</a></li>
+                <li><a href="#">Pantry Essentials</a></li>
+                <li><a href="#">Bakery</a></li>
+            </ul>
+            <ul>
+                <li class="footer-title">Our Services</li>
+                <li><a href="#">Home Delivery</a></li>
+                <li><a href="#">Curbside Pickup</a></li>
+            </ul>
+            <ul>
+                <li class="footer-title">Our Company</li>
+                <li><a href="#locate">Locations & Hours</a></li>
+                <li><a href="#about">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+            <div class="newsletter">
+                <h3>Stay up to date with our newsletter</h3>
+                <form id="newsletter-form" role="form">
+                    <label for="newsletter-email" class="visually-hidden">Email for newsletter</label>
+                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-describedby="newsletter-error">
+                    <div id="newsletter-error" class="error hidden"></div>
+                    <button type="submit" class="btn-filled-dark">
+                        <i class="ri-mail-send-line"></i> Subscribe
+                    </button>
+                </form>
+                <div class="social-icons">
+                    <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Grocery Haven. All rights reserved.</p>
+        </div>
+    </footer>
+    <div id="cart-modal" class="modal hidden" role="dialog" aria-labelledby="cart-title">
+        <div class="modal-content">
+            <h2 id="cart-title">Your Cart</h2>
+            <button class="close-modal" aria-label="Close cart"><i class="ri-close-line"></i></button>
+            <ul id="cart-items" aria-live="polite"></ul>
+            <p id="cart-total">Total: $0.00</p>
+            <form id="checkout-form">
+                <button type="submit" class="btn-filled-dark" id="checkout-btn" disabled>
+                    <i class="ri-secure-payment-line"></i> Proceed to Checkout
+                </button>
+                <div id="checkout-loading" class="loading hidden">Processing...</div>
+            </form>
+        </div>
+    </div>
+    <div id="quick-view-modal" class="modal hidden" role="dialog" aria-labelledby="quick-view-title">
+        <div class="modal-content">
+            <h2 id="quick-view-title">Product Details</h2>
+            <button class="close-modal" aria-label="Close quick view"><i class="ri-close-line"></i></button>
+            <div id="quick-view-content"></div>
+        </div>
+    </div>
+    <div id="undo-snackbar" class="snackbar hidden" role="alert">
+        Item removed from cart. <button class="undo-btn">Undo</button>
+    </div>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
