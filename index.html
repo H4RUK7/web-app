@@ -3,89 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Grocery Haven - Your one-stop shop for fresh groceries with delivery and pickup options.">
+    <meta name="description" content="Grocery Store - Your one-stop shop for fresh groceries with delivery and pickup options.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="style.css">
-    <title>Grocery Haven - Fresh Groceries Delivered</title>
+    <title>Grocery Store - Fresh Groceries Delivered</title>
 </head>
 <body>
+    <!-- Loader -->
+    <div id="loader" class="loader-container">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Scroll to Top -->
+    <button id="scroll-to-top" class="scroll-to-top-button" aria-label="Scroll to top">↑</button>
+
+    <!-- Header -->
     <header>
         <div class="banner" role="alert">Get free delivery on orders over $50</div>
         <nav aria-label="Main navigation">
             <div id="logo">
-                <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grocery Haven Logo">
+                <svg width="40" height="32" viewBox="0 0 40 32" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Grocery Store Logo">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M12.8 32H0V21.9849C0 17.1239 4.0116 13.1839 8.96 13.1839H15.2V0.468341C15.2 0.251458 15.3792 0.0754376 15.6 0.0754376C15.7184 0.0754376 15.8308 0.127301 15.9068 0.216883L17.3616 1.92719C18.402 1.07577 19.74 0.563816 21.2 0.563816H22C23.442 0.563816 24.7656 1.06359 25.8 1.89654L27.2932 0.14066C27.3692 0.0514706 27.4812 0 27.6 0C27.8208 0 28 0.175628 28 0.392904V15.3896H23.36C17.528 15.3896 12.8 20.0337 12.8 25.7623V32Z" fill="#45413E" />
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M29.76 17.0569V12.0875C29.76 12.0836 29.76 12.0797 29.76 12.0758V6.79004C29.76 6.57435 29.9392 6.4 30.16 6.4C30.266 6.4 30.3676 6.44095 30.4424 6.51389L31.9576 7.98784C32.7864 7.42501 33.7936 7.09504 34.88 7.09504C35.97 7.09504 36.9808 7.42735 37.8112 7.99369L39.3176 6.52793C39.3924 6.45499 39.494 6.41404 39.6 6.41404C39.8208 6.41404 40 6.58878 40 6.80408V23.2632C40 28.0883 35.9884 32 31.04 32H14.4V25.7938C14.4 20.969 18.4116 17.0569 23.36 17.0569H29.76Z" fill="#45413E" />
                 </svg>
-                <span>Grocery Haven</span>
+                <span>Grocery Store</span>
             </div>
             <ul class="navigation-menu">
-                <li><a href="#" aria-haspopup="true">Products</a>
-                    <ul class="subnav">
-                        <li class="card-med" id="cat-fruits">
-                            <div class="card-image">
-                                <img src="splash1.jpg" alt="Fruits" class="lazy">
-                            </div>
-                            <a href="#" data-category="Fruits">
-                                <span>Fruits</span>
-                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
-                            </a>
-                        </li>
-                        <li class="card-med" id="cat-vegetables">
-                            <div class="card-image">
-                                <img src="img2.webp" alt="Vegetables" class="lazy">
-                            </div>
-                            <a href="#" data-category="Vegetables">
-                                <span>Vegetables</span>
-                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
-                            </a>
-                        </li>
-                        <li class="card-med" id="cat-dairy">
-                            <div class="card-image">
-                                <img src="img5.webp" alt="Dairy" class="lazy">
-                            </div>
-                            <a href="#" data-category="Dairy">
-                                <span>Dairy</span>
-                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
-                            </a>
-                        </li>
-                        <li class="card-med" id="cat-pantry">
-                            <div class="card-image">
-                                <img src="img3.jpg" alt="Pantry" class="lazy">
-                            </div>
-                            <a href="#" data-category="Pantry">
-                                <span>Pantry</span>
-                                <span>Shop All <i class="ri-arrow-right-line"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li><a href="#" aria-haspopup="true">Services</a>
-                    <ul class="subnav">
-                        <li class="card-med" id="serv-delivery">
-                            <div class="card-image">
-                                <img src="img1.avif" alt="Delivery" class="lazy">
-                            </div>
-                            <a href="#">
-                                <span>Delivery</span>
-                                <span>More Info <i class="ri-arrow-right-line"></i></span>
-                            </a>
-                        </li>
-                        <li class="card-med" id="serv-pickup">
-                            <div class="card-image">
-                                <img src="splash2.jpg" alt="Curbside Pickup" class="lazy">
-                            </div>
-                            <a href="#">
-                                <span>Curbside Pickup</span>
-                                <span>More Info <i class="ri-arrow-right-line"></i></span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
+                <li><a href="#products" aria-haspopup="true">Products</a></li>
+                <li><a href="#services">Services</a></li>
                 <li><a href="#locate">Locations & Hours</a></li>
                 <li><a href="#about">About Us</a></li>
             </ul>
@@ -106,139 +57,294 @@
             </form>
         </div>
     </header>
+
+    <!-- Main Content -->
     <main>
-        <section class="hero" aria-labelledby="hero-title">
-            <h1 id="hero-title">Your One-Stop Shop for <span>Fresh Groceries!</span></h1>
-            <div class="hero-image">
-                <img src="splash6.jpg" alt="Fresh Groceries" class="lazy">
+        <!-- Hero Carousel -->
+        <section class="hero-section" aria-labelledby="hero-title">
+            <div class="container">
+                <div class="swiper hero-slider">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="hero-slide" style="background: linear-gradient(135deg, #fb923c, #16a34a);">
+                                <div class="hero-content">
+                                    <span class="badge">Opening Sale Discount 50%</span>
+                                    <h1>SuperMarket Daily <br> Fresh Grocery</h1>
+                                    <p>Introduced a new model for online grocery shopping and convenient home delivery.</p>
+                                    <a href="#products" class="btn btn-dark">Shop Now <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="hero-slide" style="background: linear-gradient(135deg, #fb923c, #16a34a);">
+                                <div class="hero-content">
+                                    <span class="badge">Free Shipping - Orders Over $100</span>
+                                    <h1>Free Shipping on <br> Orders Over <span>$100</span></h1>
+                                    <p>Free Shipping to First-Time Customers Only, After promotions and discounts are applied.</p>
+                                    <a href="#products" class="btn btn-dark">Shop Now <i class="ri-arrow-right-line"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-pagination"></div>
+                </div>
             </div>
-            <div class="btn-group">
-                <button class="btn-filled-dark" data-filter="all">
-                    <i class="ri-shopping-cart-line"></i> Shop All Products
-                </button>
-                <button class="btn-outline-dark">
-                    <i class="ri-calendar-line"></i> Schedule Delivery
-                </button>
+        </section>
+
+        <!-- Welcome Section -->
+        <section class="welcome-section" data-aos="fade-down">
+            <div class="container">
+                <div class="welcome-cta">
+                    <div class="welcome-content">
+                        <img src="splash6.jpg" alt="About icon" class="welcome-icon">
+                        <div>
+                            <h2>Welcome to Grocery Store</h2>
+                            <p>Download the app get free food & <span>$30</span> off on your first order.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="btn btn-dark">Download App</a>
+                </div>
             </div>
         </section>
-        <section id="products" aria-labelledby="products-title">
-            <h2 id="products-title">Shop Our Products</h2>
-            <div class="filter-bar">
-                <button class="btn-outline-dark active" data-filter="all">All</button>
-                <button class="btn-outline-dark" data-filter="Fruits">Fruits</button>
-                <button class="btn-outline-dark" data-filter="Vegetables">Vegetables</button>
-                <button class="btn-outline-dark" data-filter="Dairy">Dairy</button>
-                <button class="btn-outline-dark" data-filter="Pantry">Pantry</button>
+
+        <!-- Ad Banners -->
+        <section class="ad-banners" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="ad-banner">
+                            <img src="splash6.jpg" alt="Personal Care" class="img-fluid">
+                            <div class="banner-text">
+                                <h3>10% Cashback on <br> Personal Care</h3>
+                                <p>Max cashback: $12 <br> Code: <span>CARE12</span></p>
+                                <a href="#products" class="btn btn-dark">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ad-banner">
+                            <img src="splash6.jpg" alt="Season's Fresh" class="img-fluid">
+                            <div class="banner-text">
+                                <h3>Say Yes to <br> Season’s Fresh</h3>
+                                <p>Refresh your day the fruity way</p>
+                                <a href="#products" class="btn btn-dark">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="ad-banner">
+                            <img src="splash6.jpg" alt="Ice Cream" class="img-fluid">
+                            <div class="banner-text">
+                                <h3>When in Doubt, <br> Eat Ice Cream</h3>
+                                <p>Enjoy a scoop of summer today</p>
+                                <a href="#products" class="btn btn-dark">Shop Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <ul class="product-list" aria-live="polite"></ul>
         </section>
-        <section id="recommendations" aria-labelledby="recommendations-title">
-            <h2 id="recommendations-title">Recommended for You</h2>
-            <ul class="product-list" aria-live="polite"></ul>
+
+        <!-- Categories -->
+        <section id="categories" class="categories-section" aria-labelledby="categories-title" data-aos="fade-up">
+            <div class="container">
+                <h2 id="categories-title" class="section-title">Shop Popular Categories</h2>
+                <div class="row">
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="img1.avif" alt="Dairy, Bread & Eggs"><span>Dairy, Bread & Eggs</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="img2.webp" alt="Fruits & Vegetables"><span>Fruits & Vegetables</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="img3.jpg" alt="Snack & Munchies"><span>Snack & Munchies</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="img4.jpg" alt="Bakery & Biscuits"><span>Bakery & Biscuits</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="img5.webp" alt="Instant Food"><span>Instant Food</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Tea, Coffee & Drinks"><span>Tea, Coffee & Drinks</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Cold Drinks & Juices"><span>Cold Drinks & Juices</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Chicken, Meat & Fish"><span>Chicken, Meat & Fish</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Baby Care"><span>Baby Care</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Cleaning Essentials"><span>Cleaning Essentials</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Pet Care"><span>Pet Care</span></a></div>
+                    <div class="col-6 col-md-2"><a href="#products" class="category-card"><img src="splash6.jpg" alt="Atta, Rice & Dal"><span>Atta, Rice & Dal</span></a></div>
+                </div>
+            </div>
         </section>
-        <section id="recently-viewed" aria-labelledby="recently-viewed-title">
-            <h2 id="recently-viewed-title">Recently Viewed</h2>
-            <ul class="product-list" aria-live="polite"></ul>
+
+        <!-- Promotional Banners -->
+        <section class="promo-banners" data-aos="fade-up">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="promo-banner" style="background: #86efac;">
+                            <h3>Fruits & Vegetables</h3>
+                            <p>Get Up to <span>30%</span> Off</p>
+                            <a href="#products" class="btn btn-dark">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="promo-banner" style="background: #a7f3d0;">
+                            <h3>Freshly Baked Buns</h3>
+                            <p>Get Up to <span>25%</span> Off</p>
+                            <a href="#products" class="btn btn-dark">Shop Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
-        <section id="services" aria-labelledby="services-title">
-            <h2 id="services-title">Our Services</h2>
-            <ul class="services">
-                <li class="card-large card-dark card-wide">
-                    <div class="card-image">
-                        <img src="img1.avif" alt="Home Delivery" class="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3>Home Delivery</h3>
-                        <span class="subtitle">Fresh groceries delivered to your door.</span>
-                        <ul>
-                            <li><a href="#">Same-Day Delivery</a><span>$9.99</span></li>
-                            <li><a href="#">Scheduled Delivery</a><span>$4.99</span></li>
-                        </ul>
-                        <button class="btn-filled-dark">
-                            <i class="ri-calendar-line"></i> Book Now
-                        </button>
-                    </div>
-                </li>
-                <li class="card-large card-dark card-wide">
-                    <div class="card-image">
-                        <img src="img1.avif" alt="Curbside Pickup" class="lazy">
-                    </div>
-                    <div class="card-content">
-                        <h3>Curbside Pickup</h3>
-                        <span class="subtitle">Quick and convenient grocery pickup.</span>
-                        <ul>
-                            <li><a href="#">Standard Pickup</a><span>Free</span></li>
-                            <li><a href="#">Express Pickup</a><span>$5.99</span></li>
-                        </ul>
-                        <button class="btn-filled-dark">
-                            <i class="ri-calendar-line"></i> Book Now
-                        </button>
-                    </div>
-                </li>
-            </ul>
+
+        <!-- Products -->
+        <section id="products" class="products-section" aria-labelledby="products-title" data-aos="fade-up">
+            <div class="container">
+                <h2 id="products-title" class="section-title">Shop Our Products</h2>
+                <div class="filter-bar">
+                    <button class="btn-outline-dark active" data-filter="all">All</button>
+                    <button class="btn-outline-dark" data-filter="Fruits">Fruits</button>
+                    <button class="btn-outline-dark" data-filter="Vegetables">Vegetables</button>
+                    <button class="btn-outline-dark" data-filter="Dairy">Dairy</button>
+                    <button class="btn-outline-dark" data-filter="Pantry">Pantry</button>
+                </div>
+                <ul class="product-list" aria-live="polite"></ul>
+            </div>
         </section>
-        <section id="locate" aria-labelledby="locate-title">
-            <h2 id="locate-title">Location & Hours</h2>
-            <p>Our friendly staff is ready to help you find the freshest groceries for your needs.</p>
-            <div class="btn-group">
-                <button class="btn-filled-dark">
-                    <i class="ri-map-pin-line"></i> Find a Store
-                </button>
-                <button class="btn-outline-dark">
-                    <i class="ri-customer-service-line"></i> Contact Us
-                </button>
+
+        <!-- Daily Best Sells -->
+        <section id="daily-sells" class="daily-sells-section" aria-labelledby="daily-sells-title" data-aos="fade-up">
+            <div class="container">
+                <h2 id="daily-sells-title" class="section-title">Daily Best Sells</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="deal-banner" style="background: #fb923c;">
+                            <h3>100% Organic Coffee Beans</h3>
+                            <p>Get the best deal before close.</p>
+                            <a href="#products" class="btn btn-primary">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="swiper product-slider">
+                            <div class="swiper-wrapper" id="product-slider"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-button-next"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services" class="services-section" aria-labelledby="services-title" data-aos="fade-up">
+            <div class="container">
+                <h2 id="services-title" class="section-title">Why Shop With Us</h2>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="service-card">
+                            <img src="splash6.jpg" alt="Easy Returns">
+                            <h3>Easy Returns</h3>
+                            <p>Not satisfied? Return at your doorstep & get a refund within hours.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-card">
+                            <img src="splash6.jpg" alt="Wide Assortment">
+                            <h3>Wide Assortment</h3>
+                            <p>Choose from 5000+ products across food, personal care, and more.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-card">
+                            <img src="splash6.jpg" alt="Best Prices">
+                            <h3>Best Prices & Offers</h3>
+                            <p>Cheaper prices than your local supermarket with great cashback offers.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="service-card">
+                            <img src="splash6.jpg" alt="Fast Delivery">
+                            <h3>10 Minute Grocery</h3>
+                            <p>Get your order delivered at the earliest from our pickup stores.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- App Download -->
+        <section id="app-download" class="app-download-section" aria-labelledby="app-download-title" data-aos="fade-up">
+            <div class="container" style="background: #ecfdf5;">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2 id="app-download-title">Get the Grocery Store App</h2>
+                        <p>We will send you a link to download the app.</p>
+                        <form class="app-form">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="contact" id="email" class="form-check-input">
+                                <label for="email" class="form-check-label">Email</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="contact" id="phone" class="form-check-input" checked>
+                                <label for="phone" class="form-check-label">Phone</label>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Enter phone or email">
+                                <button type="submit" class="btn btn-primary">Share App Link</button>
+                            </div>
+                        </form>
+                        <div class="app-links">
+                            <a href="#"><img src="Store download button.png" alt="App Store"></a>
+                            <a href="#"><img src="Component 2.png" alt="Google Play"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer aria-label="Footer navigation">
-        <div class="footer-content">
-            <ul>
-                <li class="footer-title">Products</li>
-                <li><a href="#">Fruits</a></li>
-                <li><a href="#">Vegetables</a></li>
-                <li><a href="#">Dairy</a></li>
-                <li><a href="#">Pantry</a></li>
-                <li><a href="#">Bakery</a></li>
-            </ul>
-            <ul>
-                <li class="footer-title">Shop by Category</li>
-                <li><a href="#">Fresh Produce</a></li>
-                <li><a href="#">Dairy & Eggs</a></li>
-                <li><a href="#">Pantry Essentials</a></li>
-                <li><a href="#">Bakery</a></li>
-            </ul>
-            <ul>
-                <li class="footer-title">Our Services</li>
-                <li><a href="#">Home Delivery</a></li>
-                <li><a href="#">Curbside Pickup</a></li>
-            </ul>
-            <ul>
-                <li class="footer-title">Our Company</li>
-                <li><a href="#locate">Locations & Hours</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
-            </ul>
-            <div class="newsletter">
-                <h3>Stay up to date with our newsletter</h3>
-                <form id="newsletter-form" role="form">
-                    <label for="newsletter-email" class="visually-hidden">Email for newsletter</label>
-                    <input type="email" id="newsletter-email" placeholder="Enter your email" required aria-describedby="newsletter-error">
-                    <div id="newsletter-error" class="error hidden"></div>
-                    <button type="submit" class="btn-filled-dark">
-                        <i class="ri-mail-send-line"></i> Subscribe
-                    </button>
-                </form>
-                <div class="social-icons">
-                    <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#products">Fruits</a></li>
+                        <li><a href="#products">Vegetables</a></li>
+                        <li><a href="#products">Dairy</a></li>
+                        <li><a href="#products">Pantry</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Services</h3>
+                    <ul>
+                        <li><a href="#services">Home Delivery</a></li>
+                        <li><a href="#services">Curbside Pickup</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Company</h3>
+                    <ul>
+                        <li><a href="#locate">Locations & Hours</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="login.html">Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-newsletter">
+                    <h3>Stay Updated</h3>
+                    <form id="newsletter-form">
+                        <input type="email" id="newsletter-email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn btn-dark"><i class="ri-mail-send-line"></i> Subscribe</button>
+                    </form>
+                    <div class="social-icons">
+                        <a href="#" aria-label="Facebook"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="ri-instagram-line"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="ri-twitter-x-line"></i></a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="footer-bottom">
-            <p>© 2025 Grocery Haven. All rights reserved.</p>
+            <div class="footer-bottom">
+                <p>© 2025 Grocery Store. All rights reserved.</p>
+            </div>
         </div>
     </footer>
+
+    <!-- Cart Modal -->
     <div id="cart-modal" class="modal hidden" role="dialog" aria-labelledby="cart-title">
         <div class="modal-content">
             <h2 id="cart-title">Your Cart</h2>
@@ -246,13 +352,12 @@
             <ul id="cart-items" aria-live="polite"></ul>
             <p id="cart-total">Total: $0.00</p>
             <form id="checkout-form">
-                <button type="submit" class="btn-filled-dark" id="checkout-btn" disabled>
-                    <i class="ri-secure-payment-line"></i> Proceed to Checkout
-                </button>
-                <div id="checkout-loading" class="loading hidden">Processing...</div>
+                <button type="submit" class="btn btn-dark" id="checkout-btn" disabled>Proceed to Checkout</button>
             </form>
         </div>
     </div>
+
+    <!-- Quick View Modal -->
     <div id="quick-view-modal" class="modal hidden" role="dialog" aria-labelledby="quick-view-title">
         <div class="modal-content">
             <h2 id="quick-view-title">Product Details</h2>
@@ -260,11 +365,17 @@
             <div id="quick-view-content"></div>
         </div>
     </div>
+
+    <!-- Snackbar -->
     <div id="undo-snackbar" class="snackbar hidden" role="alert">
         Item removed from cart. <button class="undo-btn">Undo</button>
     </div>
+
+    <!-- Scripts -->
     <script src="https://js.stripe.com/v3/"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-    <script type="module" src="js/main.js"></script>
+    <script src="main.js"></script>
 </body>
 </html>
