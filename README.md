@@ -1,43 +1,45 @@
-👑 Kings MRT - Multi-Resource Tracker
+👑 Kings MRT – Grocery Store Resource Management App
 
-Kings MRT (Multi-Resource Tracker) is a modern, web-based application designed to manage and monitor the distribution and usage of key supplies such as toiletries, food, water, snacks, and others in segmented modules.
-🛠️ Tech Stack
+Kings MRT (Multi-Resource Tracker) is a dynamic and organized web-based grocery store application created to help manage and monitor essential resources across multiple categories. This platform was built using HTML, CSS, JavaScript, and Python for the backend. The application is structured into multiple segments, each handling a specific type of grocery resource such as toiletries, food, water, snacks, and others. It was designed to be simple, user-friendly, and efficient for both customers and store operators.
+📌 Project Objective
 
-    Frontend:
+The main goal of Kings MRT is to simplify how grocery stores track, display, and manage their available resources in real-time. Rather than having a cluttered interface, we separated the application into clean and focused segments that allow for better organization and ease of access. Each resource category has its own interface and logic, all connected under one system.
+💻 Tech Stack Used
+Frontend
 
-        HTML5
+    HTML5: Structure and layout of the pages.
 
-        CSS3
+    CSS3: Styling and responsive design to ensure the app looks clean and professional on all devices.
 
-        JavaScript (Vanilla JS)
+    JavaScript: Handles dynamic content, user interaction, and enhances the user experience through interactivity.
 
-    Backend:
+Backend
 
-        Python (Flask / Django)
+    Python: Core server logic, processing requests, and managing data.
 
-📦 Features
-🔹 Segmented Resource Tracking
+    Flask (or Django, depending on implementation): Backend framework used to route requests, connect frontend with backend, and handle database interactions.
 
-Kings MRT organizes resources into the following categories:
+🔧 Core Features
+🔹 Segmented Resource Categories
 
-    🚿 Toiletries – Track items like soap, tissue, toothpaste, etc.
+The grocery store inventory is categorized into clear segments:
 
-    🍲 Food – Manage meals, groceries, and perishables.
+    Toiletries – Includes items like tissue paper, soap, detergents, and personal hygiene products.
 
-    💧 Water – Monitor bottled water, dispenser use, etc.
+    Food – Covers groceries, vegetables, canned foods, dairy, and other meal ingredients.
 
-    🍫 Snacks – Log snacks and refreshments.
+    Water – Tracks bottled water, refill stations, and drinkable supplies.
 
-    📦 Others – Custom tracking for anything that doesn't fall under the above.
+    Snacks – Includes biscuits, chips, chocolate, drinks, and light refreshments.
 
-🔹 User-Friendly Interface
+    Others – A flexible category for items that don’t fall into any of the predefined sections (e.g., gift cards, batteries, cleaning tools).
 
-    Responsive and intuitive frontend.
+🔹 Clean UI & UX
 
-    Easy navigation between resource segments.
+We created a neat interface using HTML and CSS to ensure customers and admins can navigate easily. Each resource section is represented with relevant icons or labels to make it visually understandable.
+🔹 Real-Time Interaction
 
-🔹 Real-Time Updates
+With JavaScript, the app responds in real-time as users add items, check inventories, or interact with different modules. No need to reload the entire page to get updates.
+🔹 Backend Integration
 
-    Dynamic interaction powered by JavaScript.
-
-    Backend processing using Python for real-time data storage and retrieval.
+All data collected from the frontend is sent to the backend where Python handles validation, processing, and possibly stores it in a database (e.g., SQLite or PostgreSQL). This makes it possible to expand the application to support user authentication, order tracking, and more.
